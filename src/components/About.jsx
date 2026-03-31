@@ -30,7 +30,7 @@ const About = () => {
               <div className="relative w-72 h-80 md:w-96 md:h-[450px] rounded-3xl overflow-hidden glass p-3 border border-[var(--color-primary)]/20 group shadow-xl shadow-cyan-500/5 hover:shadow-cyan-500/15 transition-all duration-700">
                 <div className="absolute inset-0 bg-gradient-to-tr from-[var(--color-primary)]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 pointer-events-none rounded-3xl"></div>
                 <img 
-                  src="/profile.jpg" 
+                  src={`${import.meta.env.BASE_URL}profile.jpg`} 
                   alt="Neeraj S" 
                   className="w-full h-full object-cover rounded-2xl transition-transform duration-1000 group-hover:scale-110" 
                 />

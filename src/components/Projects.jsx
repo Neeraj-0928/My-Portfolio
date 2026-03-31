@@ -9,7 +9,7 @@ const projects = [
   {
     id: 1,
     title: "CT-Liver HCC Classification",
-    coverImage: "/projects/ct_liver_cover.png",
+    coverImage: `${import.meta.env.BASE_URL}projects/ct_liver_cover.png`,
     description: "Developed a deep learning pipeline using PyTorch and MobileNetV2 to classify Hepatocellular Carcinoma (HCC) from CT liver scans, featuring Grad-CAM integration for explainable AI.",
     tech: ["PyTorch", "MobileNetV2", "Grad-CAM", "Python"],
     live: "#",
@@ -17,15 +17,15 @@ const projects = [
     results: {
       metrics: "The MobileNetV2 architecture learned discriminative features from the raw CT slices. Analysis of the confusion matrix reveals a strong ability to detect negative cases, correctly identifying 7 out of 9 non-HCC scans (True Negatives). However, the model struggled with positive cases, accurately predicting only 4 out of 15 active HCC cases (True Positives) while yielding 11 False Negatives, resulting in an overall accuracy of 46%. Importantly, Grad-CAM overlays proved that when the model does make predictions, it focuses on biologically relevant lesion sites rather than image artifacts.",
       images: [
-        { src: "/projects/ct-liver/sample_predictions.png?v=2", alt: "Grad-CAM Visual Predictions" },
-        { src: "/projects/ct-liver/confusion_matrix.png?v=2", alt: "Model Confusion Matrix" }
+        { src: `${import.meta.env.BASE_URL}projects/ct-liver/sample_predictions.png?v=2`, alt: "Grad-CAM Visual Predictions" },
+        { src: `${import.meta.env.BASE_URL}projects/ct-liver/confusion_matrix.png?v=2`, alt: "Model Confusion Matrix" }
       ]
     }
   },
   {
     id: 2,
     title: "Shark Tank USA Investment Analysis",
-    coverImage: "/projects/startup_cover.png",
+    coverImage: `${import.meta.env.BASE_URL}projects/startup_cover.png`,
     description: "A comprehensive data analytics project cleaning and processing a Shark Tank dataset using Python, culminating in interactive Tableau dashboards to reveal investor patterns and founder outcomes.",
     tech: ["Python", "Pandas", "Tableau", "Data Analysis"],
     live: "#",
@@ -33,8 +33,8 @@ const projects = [
     results: {
       metrics: "The data pipeline processed and cleaned raw Shark Tank episode data, handling missing values and standardizing valuation metrics via Python. The resulting dataset was piped into Tableau to build an interactive storytelling dashboard. The visualizations dynamically contrast Founder vs. Investor equity shares, track successful pitch volumes over seasons, and identify the most active Sharks in the tank.",
       images: [
-        { src: "/projects/startup-analysis/Dashboard.png?v=1", alt: "Aggregated Investment Dashboard" },
-        { src: "/projects/startup-analysis/Visual_Dashboard.png?v=1", alt: "Founder vs Investor Dynamics" }
+        { src: `${import.meta.env.BASE_URL}projects/startup-analysis/Dashboard.png?v=1`, alt: "Aggregated Investment Dashboard" },
+        { src: `${import.meta.env.BASE_URL}projects/startup-analysis/Visual_Dashboard.png?v=1`, alt: "Founder vs Investor Dynamics" }
       ]
     }
   }
