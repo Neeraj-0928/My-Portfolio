@@ -61,12 +61,13 @@ const Navbar = () => {
                 }`}></span>
               </Link>
             ))}
-            <Link
-              to="/resume"
+            <a
+              href={`${import.meta.env.BASE_URL}Resume.pdf`}
+              download="Neeraj_S_Resume.pdf"
               className="px-6 py-2.5 rounded-xl bg-[var(--color-primary)] text-white font-bold text-sm uppercase tracking-widest transition-all hover:bg-[var(--color-primary-hover)] shadow-lg shadow-cyan-500/20 hover:scale-105"
             >
               Resume
-            </Link>
+            </a>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -119,12 +120,13 @@ const Navbar = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.1 + navLinks.length * 0.1 }}
               >
-                <Link
-                  to="/resume"
+                <a
+                  href={`${import.meta.env.BASE_URL}Resume.pdf`}
+                  download="Neeraj_S_Resume.pdf"
                   className="inline-block mt-4 px-10 py-5 rounded-2xl bg-[var(--color-primary)] text-white font-black text-xl uppercase tracking-widest text-center shadow-2xl shadow-cyan-500/20"
                 >
                   Download Resume
-                </Link>
+                </a>
               </motion.div>
             </div>
           </motion.div>
