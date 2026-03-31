@@ -51,7 +51,7 @@ function App() {
   });
 
   return (
-    <Router>
+    <Router basename="/My-Portfolio">
       <div className="relative min-h-screen flex flex-col overflow-x-hidden">
         {/* Top Scroll Progress Bar */}
         <motion.div 
