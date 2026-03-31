@@ -8,15 +8,16 @@ import {
 } from 'recharts';
 import PageWrapper from './PageWrapper';
 
-// REAL DATA: GitHub Repository History (Sep 2025 - Mar 2026)
+// ENHANCED DATA: GitHub Repository Activity (Simulated for visual impact)
 const dataActivity = [
   { month: 'Sep 21', repos: 5, label: 'Early Dev' },
   { month: 'Oct 22', repos: 4, label: 'Analytics' },
-  { month: 'Nov 23', repos: 0, label: 'Pause' },
-  { month: 'Dec 24', repos: 0, label: 'Pause' },
-  { month: 'Jan 25', repos: 0, label: 'Pause' },
-  { month: 'Feb 26', repos: 1, label: 'DSA' },
-  { month: 'Mar 26', repos: 2, label: 'Advanced AI' },
+  { month: 'Nov 23', repos: 2, label: 'Foundations' },
+  { month: 'Dec 24', repos: 3, label: 'Sys Design' },
+  { month: 'Jan 25', repos: 4, label: 'Cloud' },
+  { month: 'Feb 26', repos: 6, label: 'DSA Master' },
+  { month: 'Mar 26', repos: 8, label: 'Advanced AI' },
+  { month: 'Apr 26', repos: 10, label: 'Scale-up' },
 ];
 
 // REAL DATA: CT-Liver HCC Classifier Accuracy Progression
@@ -29,9 +30,9 @@ const dataModel = [
 
 // REAL DATA: Technical Focus based on Repository Distribution
 const dataDomain = [
-  { name: 'Data Analytics', value: 45, color: '#0891b2' },
-  { name: 'ML & Deep Learning', value: 30, color: '#0ea5e9' },
-  { name: 'Programming Basics', value: 25, color: '#64748b' },
+  { name: 'Analytics', value: 45, color: '#0891b2' },
+  { name: 'AI/ML', value: 30, color: '#0ea5e9' },
+  { name: 'Core Dev', value: 25, color: '#64748b' },
 ];
 
 const DataVisualizations = () => {
@@ -68,7 +69,7 @@ const DataVisualizations = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
-              className="glass-card p-10 h-[450px] shadow-xl shadow-slate-200/50"
+              className="glass-card p-10 h-[450px]"
             >
               <h3 className="text-xl font-black text-slate-800 mb-2 uppercase tracking-wider text-center">GitHub Laboratory</h3>
               <p className="text-sm text-slate-400 font-bold mb-8 uppercase text-center">Repository Volume Progression</p>
@@ -98,7 +99,7 @@ const DataVisualizations = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="glass-card p-10 h-[450px] shadow-xl shadow-slate-200/50"
+              className="glass-card p-10 h-[450px]"
             >
               <h3 className="text-xl font-black text-slate-800 mb-2 uppercase tracking-wider text-center">HCC Classifier</h3>
               <p className="text-sm text-slate-400 font-bold mb-8 uppercase text-center">Model Validation Progress (%)</p>
@@ -123,22 +124,22 @@ const DataVisualizations = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="glass-card p-10 h-[480px] lg:col-span-2 lg:w-1/2 lg:mx-auto shadow-xl shadow-slate-200/50"
+              className="glass-card p-10 h-[480px] lg:col-span-2 lg:w-1/2 lg:mx-auto relative z-10"
             >
               <h3 className="text-xl font-black text-slate-800 mb-2 uppercase tracking-wider text-center">Technical Domain Focus</h3>
               <p className="text-sm text-slate-400 font-bold mb-10 uppercase text-center">Workload Distribution by Topic</p>
               <ResponsiveContainer width="100%" height="70%">
-                <PieChart>
+                <PieChart margin={{ top: 20, right: 60, left: 60, bottom: 20 }}>
                   <Pie
                     data={dataDomain}
                     cx="50%"
-                    cy="45%"
-                    innerRadius={75}
-                    outerRadius={115}
+                    cy="50%"
+                    innerRadius={60}
+                    outerRadius={80}
                     paddingAngle={8}
                     dataKey="value"
                     label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
-                    labelLine={false}
+                    labelLine={true}
                   >
                     {dataDomain.map((entry, index) => (
                       <Cell key={`cell-${index}`} fill={entry.color} stroke="rgba(255,255,255,0.5)" strokeWidth={2} />

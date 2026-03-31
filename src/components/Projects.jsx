@@ -89,7 +89,7 @@ const Projects = () => {
               <motion.div 
                 key={project.id}
                 variants={cardVariants}
-                className="glass-card flex flex-col h-full overflow-hidden group border-white hover:border-cyan-500/20 shadow-xl shadow-slate-200/40 relative z-10"
+                className="glass-card flex flex-col h-full overflow-hidden group relative z-10"
               >
                 <div className="h-64 bg-slate-100 relative overflow-hidden flex items-center justify-center">
                   {project.coverImage ? (
@@ -167,7 +167,7 @@ const Projects = () => {
                 animate={{ scale: 1, opacity: 1, y: 0 }}
                 exit={{ scale: 0.95, opacity: 0, y: 30 }}
                 onClick={(e) => e.stopPropagation()}
-                className="bg-white border border-slate-100 rounded-3xl max-w-5xl w-full max-h-[90vh] overflow-y-auto relative my-8 shadow-2xl"
+                className="glass-card max-w-5xl w-full max-h-[90vh] overflow-y-auto relative my-8 !bg-white/95"
               >
                 <div className="sticky top-0 z-50 flex justify-between items-center p-8 border-b border-slate-50 bg-white/95 backdrop-blur-xl">
                   <h3 className="text-3xl font-black text-slate-900 tracking-tight">{selectedProject.title} - <span className="text-gradient uppercase">Results</span></h3>

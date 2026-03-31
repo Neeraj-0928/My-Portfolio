@@ -37,13 +37,20 @@
   }
   
   .glass-card {
-    background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.5));
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--color-glass-border);
-    box-shadow: var(--shadow-light);
-    border-radius: 1.5rem;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(
+      135deg, 
+      rgba(255, 255, 255, 0.4) 0%, 
+      rgba(226, 232, 240, 0.45) 100%
+    );
+    backdrop-filter: blur(32px) saturate(160%);
+    -webkit-backdrop-filter: blur(32px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 
+      0 30px 60px -15px rgba(0, 0, 0, 0.08),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.3),
+      inset 0 0 15px 0 rgba(8, 145, 178, 0.05);
+    border-radius: 2rem;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
   }
 
   .glass-card:hover {
