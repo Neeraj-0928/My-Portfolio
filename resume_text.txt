@@ -1,0 +1,46 @@
+NEERAJ S  
+sanjayniru1@gmail.com  | +91 8217082348 | Cheemasandra, Bengaluru Rural  
+https:// linkedin.com/in/neeraj -s-9831b2370   | https://github.com/Neeraj -0928  
+PROFESSIONAL SUMMARY  
+Analytical Engineering student specializing in AI & Data Science with strong foundations in Machine Learning, Deep 
+Learning, and Data Analytics. Skilled in Python and Power BI for building intelligent, data -driven solutions and 
+optimizing intelligent syste ms. 
+EDUCATION  
+SDM Institute of Technology, Ujire (VTU) – B.E. in AI & Data  Science | CGPA: 8.8  Batch of 2027  
+• Relevant coursework: Machine Learning, Deep Learning, Data Structures, Database Management, Statistics.  
+EXPERIENCE  
+Elevate Labs  2024 – 2025  
+Intern – Data Analytics  
+• Collected, cleaned, and interpreted  structured datasets using Excel and Python to derive actionable insights.  
+• Built interactive Power BI and Tableau dashboards to visualize key performance metrics for stakeholders.  
+• Strengthened SQL querying skills for efficient data extraction, transformation, and manipulation.  
+KEY PROJECTS  
+Startup Investment Analysis (Shark Tank Data)  2025  
+Power BI — Power Query — DAX — Tableau — SQL 
+• Used DAX to compute the valuation gap — percentage difference between entrepreneur ask ing evaluation  and 
+actual deal.  
+• Designed Star Schema with a Date Table and Shark Dimension Table linked to Pitch Fact Table for fast, 
+responsive reporting.  
+• Built a funnel chart to identify  'No Deal' pitches, identifying failure stages such as high valuation and no revenue.  
+ 
+Deep Learning Detection of Hepatocellular Carcinoma from CT Liver Images  2026  
+Python — Py-Torch — Torch -Vision — Pandas — CNN — Scikit -learn — Matplotlib — Seaborn  
+• Developed a CNN model using Py -Torch with convolutional layers, batch normalization, and dropout for improved 
+liver CT image classification.  
+• Built a preprocessing pipeline using Python and Pandas to organize medical image datasets and link image files 
+with CSV metadata.  
+• Evaluated model performance using classification reports, confusion matrix visualization, and precision –recall 
+metrics.  
+TECHNICAL SKILLS  
+Programming:  Python, SQL, C  
+AI/ML Libraries:  Pandas, NumPy, Seaborn, Scikit -learn, Py -Torch, Torch -Vision  
+Data Analytics:  Power BI, Tableau, DAX, Power Query, Data Visualization  
+Tools & DBs:  Git, GitHub, VS Code, Jupyter Notebook, MySQL, MongoDB  
+Soft Skills:  Communication, Leadership, Teamwork, Problem Solving  
+CERTIFICATIONS & ACTIVITIES  
+• ChatGPT and Zapier Agentic AI for Everyone – Coursera  
+• Explore Machine Learning Using Python – Infosys Springboard  
+• Hackathon Participant: Yugma Techfest 1.0  
+• Languages Known: English (Fluent), Telugu (Fluent), Kannada  
+• Hobbies: Reading, Cricket  
+*I hereby declare that all the information above is true and complete to the best of my knowledge.  
