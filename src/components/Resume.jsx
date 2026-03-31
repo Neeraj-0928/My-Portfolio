@@ -71,7 +71,7 @@ const Resume = () => {
               <motion.a 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                href="/Resume.pdf" 
+                href="Resume.pdf" 
                 download="Neeraj_S_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
