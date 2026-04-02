@@ -1,4 +1,5 @@
-import React from 'react';
+// Triggering fresh deploy after adding secrets
+import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
 import Background from './components/Background';
