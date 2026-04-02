@@ -1,9 +1,14 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { FiMail, FiMapPin, FiPhone, FiLinkedin, FiGithub } from 'react-icons/fi';
+import React, { useState, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FiMail, FiMapPin, FiPhone, FiLinkedin, FiGithub, FiCheckCircle, FiAlertCircle, FiLoader } from 'react-icons/fi';
+import emailjs from '@emailjs/browser';
 import PageWrapper from './PageWrapper';
 
 const Contact = () => {
+  const form = useRef();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState({ type: '', message: '' });
+
   const contactInfo = [
     { 
       label: 'Email', 
@@ -30,6 +35,50 @@ const Contact = () => {
       href: 'https://github.com/Neeraj-0928'
     }
   ];
+
+  const [formData, setFormData] = useState({
+    from_name: '',
+    from_email: '',
+    message: ''
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setStatus({ type: '', message: '' });
+
+    // Fail-safe approach: Putting everything into the 'message' field 
+    // since we know {{message}} is working in your template!
+    const templateParams = {
+      from_name: formData.from_name,
+      name: formData.from_name,
+      from_email: formData.from_email,
+      email: formData.from_email,
+      'E-Mail': formData.from_email,
+      message: `SENDER NAME: ${formData.from_name}\nSENDER EMAIL: ${formData.from_email}\n\nMESSAGE Body:\n${formData.message}`,
+    };
+
+    emailjs.send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      templateParams,
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    )
+    .then((result) => {
+        setStatus({ type: 'success', message: 'Message sent successfully! I will get back to you soon.' });
+        setFormData({ from_name: '', from_email: '', message: '' });
+    }, (error) => {
+        setStatus({ type: 'error', message: 'Something went wrong. Please try again later.' });
+        console.error('EmailJS Error:', error);
+    })
+    .finally(() => {
+        setIsSubmitting(false);
+    });
+  };
 
   return (
     <PageWrapper id="contact" className="py-24">
@@ -82,12 +131,16 @@ const Contact = () => {
             >
               <div className="absolute -top-10 -right-10 w-48 h-48 bg-[var(--color-primary)]/5 rounded-full blur-[80px] group-hover:bg-[var(--color-primary)]/10 transition-colors duration-1000"></div>
               
-              <form className="flex flex-col gap-8 relative z-10">
+              <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-8 relative z-10">
                 <div className="grid md:grid-cols-2 gap-8">
                   <div className="flex flex-col gap-3">
                     <label className="text-sm font-black text-slate-700 uppercase tracking-widest ml-1">Your Name</label>
                     <input 
                       type="text" 
+                      name="from_name"
+                      value={formData.from_name}
+                      onChange={handleChange}
+                      required
                       placeholder="Enter your name" 
                       className="glass px-6 py-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/30 border-white/60 bg-white/40 text-slate-800 font-bold placeholder:text-slate-400 placeholder:font-medium transition-all"
                     />
@@ -96,6 +149,10 @@ const Contact = () => {
                     <label className="text-sm font-black text-slate-700 uppercase tracking-widest ml-1">Email Address</label>
                     <input 
                       type="email" 
+                      name="from_email"
+                      value={formData.from_email}
+                      onChange={handleChange}
+                      required
                       placeholder="Enter your email" 
                       className="glass px-6 py-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/30 border-white/60 bg-white/40 text-slate-800 font-bold placeholder:text-slate-400 placeholder:font-medium transition-all"
                     />
@@ -104,16 +161,41 @@ const Contact = () => {
                 <div className="flex flex-col gap-3">
                   <label className="text-sm font-black text-slate-700 uppercase tracking-widest ml-1">Your Message</label>
                   <textarea 
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
                     rows="5" 
                     placeholder="How can I help you?"
                     className="glass px-6 py-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/30 border-white/60 bg-white/40 text-slate-800 font-bold placeholder:text-slate-400 placeholder:font-medium transition-all resize-none"
                   ></textarea>
                 </div>
+
+                <AnimatePresence>
+                  {status.message && (
+                    <motion.div 
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className={`flex items-center gap-3 p-4 rounded-xl font-bold ${status.type === 'success' ? 'bg-emerald-50 text-emerald-600 border border-emerald-200' : 'bg-rose-50 text-rose-600 border border-rose-200'}`}
+                    >
+                      {status.type === 'success' ? <FiCheckCircle /> : <FiAlertCircle />}
+                      {status.message}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
                 <button 
                   type="submit" 
-                  className="px-12 py-5 bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white font-black rounded-2xl transition-all shadow-xl shadow-cyan-500/20 hover:shadow-cyan-500/40 transform hover:scale-[1.02] active:scale-[0.98] uppercase tracking-widest text-lg"
+                  disabled={isSubmitting}
+                  className="px-12 py-5 bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white font-black rounded-2xl transition-all shadow-xl shadow-cyan-500/20 hover:shadow-cyan-500/40 transform hover:scale-[1.02] active:scale-[0.98] uppercase tracking-widest text-lg disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-3"
                 >
-                  Send Message
+                  {isSubmitting ? (
+                    <>
+                      <FiLoader className="animate-spin text-2xl" />
+                      Sending...
+                    </>
+                  ) : 'Send Message'}
                 </button>
               </form>
             </motion.div>
