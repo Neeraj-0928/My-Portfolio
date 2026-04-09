@@ -9,21 +9,34 @@ const AbstractAIModel = () => {
   return (
     <Float speed={2.5} rotationIntensity={1.5} floatIntensity={2}>
       {/* Outer abstract shape (wireframe) */}
-      <Sphere args={[2.2, 24, 24]}>
-        <meshStandardMaterial color="#0891b2" wireframe opacity={0.1} transparent />
+      <Sphere args={[2.2, 32, 32]}>
+        <meshStandardMaterial color="#0891b2" wireframe opacity={0.15} transparent />
       </Sphere>
       
-      {/* Inner glowing core */}
+      {/* Dynamic Liquid Core */}
       <Sphere args={[1.4, 64, 64]}>
         <MeshDistortMaterial
-          color="#0ea5e9"
+          color="#06b6d4"
           attach="material"
-          distort={0.4}
-          speed={2}
-          roughness={0.1}
-          metalness={0.9}
-          emissive="#0891b2"
-          emissiveIntensity={0.2}
+          distort={0.5}
+          speed={4}
+          roughness={0}
+          metalness={1}
+          emissive="#3b82f6"
+          emissiveIntensity={1.2}
+          transparent
+          opacity={0.7}
+        />
+      </Sphere>
+
+      {/* Internal Hot Core for depth */}
+      <Sphere args={[0.6, 32, 32]}>
+        <meshStandardMaterial 
+          color="#ffffff" 
+          emissive="#8b5cf6" 
+          emissiveIntensity={2} 
+          transparent 
+          opacity={0.8} 
         />
       </Sphere>
     </Float>
